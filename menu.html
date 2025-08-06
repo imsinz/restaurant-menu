@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>منوی رستوران</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {font-family: Tahoma, sans-serif; direction: rtl; background: #f9f9f9; margin: 0; padding: 0;}
+    header {background: #b22222; color: #fff; text-align: center; padding: 20px; font-size: 26px; font-weight: bold;}
+    .menu {max-width: 900px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);}
+    .menu h2 {text-align: center; color: #b22222; margin-bottom: 20px;}
+    .menu-item {display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ddd; padding: 12px 0; flex-wrap: wrap;}
+    .menu-item img {width: 120px; height: 90px; object-fit: cover; border-radius: 8px; margin-left: 15px; flex-shrink: 0;}
+    .details {flex-grow: 1; min-width: 200px;}
+    .details span {display: block; font-size: 18px; margin-bottom: 6px;}
+    .price {font-weight: bold; color: #b22222; font-size: 18px;}
+    .menu-item:last-child {border-bottom: none;}
+    footer {text-align: center; background: #eee; padding: 15px; font-size: 14px; color: #555; margin-top: 30px;}
+    @media (max-width: 600px) {
+      .menu-item {flex-direction: column; align-items: flex-start;}
+      .menu-item img {width: 100%; height: auto; margin: 0 0 10px 0;}
+      .details span, .price {font-size: 16px;}
+    }
+  </style>
+</head>
+<body>
+
+<header>رستوران پدیده</header>
+
+<div class="menu">
+  <h2>منوی غذا</h2>
+
+  <div class="menu-item">
+    <img src="images/jooje.jpg" alt="چلو جوجه معمولی">
+    <div class="details">
+      <span>چلو جوجه معمولی</span>
+      <span class="price">۱۴۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/kubide.jpg" alt="چلو کوبیده معمولی">
+    <div class="details">
+      <span>چلو کوبیده معمولی</span>
+      <span class="price">۱۴۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/jooje_special.jpg" alt="چلو جوجه مخصوص">
+    <div class="details">
+      <span>چلو جوجه مخصوص</span>
+      <span class="price">۱۷۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/kubide_double.jpg" alt="چلو کوبیده دوبل">
+    <div class="details">
+      <span>چلو کوبیده دوبل</span>
+      <span class="price">۱۷۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/vaziri.jpg" alt="چلو کباب وزیری">
+    <div class="details">
+      <span>چلو کباب وزیری</span>
+      <span class="price">۱۹۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/zereshk.jpg" alt="زرشک پلو با مرغ">
+    <div class="details">
+      <span>زرشک پلو با مرغ</span>
+      <span class="price">۱۵۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/chologosht.jpg" alt="چلوگوشت">
+    <div class="details">
+      <span>چلوگوشت</span>
+      <span class="price">۲۰۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/ghorme.jpg" alt="چلو خورشت قرمه سبزی">
+    <div class="details">
+      <span>چلو خورشت قرمه سبزی</span>
+      <span class="price">۱۳۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/gheyme.jpg" alt="چلو خورشت قیمه سیب زمینی">
+    <div class="details">
+      <span>چلو خورشت قیمه سیب زمینی</span>
+      <span class="price">۱۳۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/khorrak_jooje.jpg" alt="خوراک جوجه معمولی">
+    <div class="details">
+      <span>خوراک جوجه معمولی</span>
+      <span class="price">۹۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/khorrak_kubide_special.jpg" alt="خوراک کوبیده مخصوص">
+    <div class="details">
+      <span>خوراک کوبیده مخصوص</span>
+      <span class="price">۸۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/khorrak_morgh.jpg" alt="خوراک مرغ">
+    <div class="details">
+      <span>خوراک مرغ</span>
+      <span class="price">۱۲۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/khorrak_jooje_special.jpg" alt="خوراک جوجه مخصوص">
+    <div class="details">
+      <span>خوراک جوجه مخصوص</span>
+      <span class="price">۱۲۰,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/cholokare.jpg" alt="چلوکره">
+    <div class="details">
+      <span>چلوکره</span>
+      <span class="price">۷۵,۰۰۰ تومان</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  آدرس: تهران، اسلامشهر، خیابان اصلی — تلفن: ۰۹۱۲xxxxxxx
+</footer>
+
+</body>
+</html>
