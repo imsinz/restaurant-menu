@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <title>منوی رستوران</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>منوی فوق لوکس رستوران</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      font-family: Tahoma, sans-serif;
+      font-family: 'Tahoma', sans-serif;
       direction: rtl;
-      background: #f9f9f9;
       margin: 0;
-      padding-top: 160px; /* فضای هدر ثابت */
+      padding-top: 160px;
+      background: #f5f5f5;
     }
 
     header {
@@ -22,7 +22,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     .logo {
@@ -31,64 +31,87 @@
       height: auto;
     }
 
-    @media (max-width: 600px) {
-      .logo {
-        max-width: 120px;
-      }
-    }
-
     .menu {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 20px auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
     }
 
     .menu h2 {
+      width: 100%;
       text-align: center;
       color: #b22222;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      font-size: 32px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
 
     .menu-item {
+      flex: 1 1 calc(33.333% - 20px);
+      background: linear-gradient(145deg, #fff, #ffeaea);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #ddd;
-      padding: 12px 0;
-      flex-wrap: wrap;
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .menu-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
     }
 
     .menu-item img {
-      width: 120px;
-      height: 90px;
+      width: 100%;
+      height: 180px;
       object-fit: cover;
-      border-radius: 8px;
-      margin-left: 15px;
-      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    .menu-item:hover img {
+      transform: scale(1.05);
     }
 
     .details {
-      flex-grow: 1;
-      min-width: 200px;
+      padding: 15px;
+      text-align: center;
     }
 
     .details span {
       display: block;
+      margin-bottom: 10px;
       font-size: 18px;
-      margin-bottom: 6px;
+      font-weight: 500;
+      color: #333;
     }
 
     .price {
       font-weight: bold;
-      color: #b22222;
-      font-size: 18px;
+      color: #fff;
+      background: linear-gradient(135deg, #ff4d4d, #b22222);
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 16px;
+      display: inline-block;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .menu-item:last-child {
-      border-bottom: none;
+    .menu-item:hover .price {
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(178,34,34,0.6);
     }
 
     footer {
@@ -100,20 +123,22 @@
       margin-top: 30px;
     }
 
+    /* تبلت */
+    @media (max-width: 900px) {
+      .menu-item {
+        flex: 1 1 calc(50% - 20px);
+      }
+    }
+
+    /* موبایل */
     @media (max-width: 600px) {
       .menu-item {
-        flex-direction: column;
-        align-items: flex-start;
+        flex: 1 1 100%;
       }
-
       .menu-item img {
-        width: 100%;
         height: auto;
-        margin: 0 0 10px 0;
       }
-
-      .details span,
-      .price {
+      .details span, .price {
         font-size: 16px;
       }
     }
@@ -121,126 +146,45 @@
 </head>
 <body>
   <header>
-    <img src="images/logo.png" alt="لوگوی رستوران پدیده" class="logo" />
+    <img src="images/logo.png" alt="لوگوی رستوران پدیده" class="logo">
   </header>
 
   <div class="menu">
     <h2>منوی غذا</h2>
 
-    <div class="menu-item">
-      <img src="images/jooje.jpg" alt="چلو جوجه معمولی" />
-      <div class="details">
-        <span>چلو جوجه معمولی</span>
-        <span class="price">۱۵۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/kubide.jpg" alt="چلو کوبیده معمولی" />
-      <div class="details">
-        <span>چلو کوبیده معمولی</span>
-        <span class="price">۱۵۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/jooje_special.jpg" alt="چلو جوجه مخصوص" />
-      <div class="details">
-        <span>چلو جوجه مخصوص</span>
-        <span class="price">۱۸۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/kubide_double.jpg" alt="چلو کوبیده دوبل" />
-      <div class="details">
-        <span>چلو کوبیده دوبل</span>
-        <span class="price">۱۸۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/vaziri.jpg" alt="چلو کباب وزیری" />
-      <div class="details">
-        <span>چلو کباب وزیری</span>
-        <span class="price">۲۰۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/zereshk.jpg" alt="زرشک پلو با مرغ" />
-      <div class="details">
-        <span>زرشک پلو با مرغ</span>
-        <span class="price">۱۶۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/chologosht.jpg" alt="چلوگوشت" />
-      <div class="details">
-        <span>چلوگوشت</span>
-        <span class="price">۲۲۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-<div class="menu-item">
-      <img src="images/ghorme.jpg" alt="چلو خورشت قرمه سبزی" />
-      <div class="details">
-        <span>چلو خورشت قرمه سبزی</span>
-        <span class="price">۱۴۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/gheyme.jpg" alt="چلو خورشت قیمه سیب زمینی" />
-      <div class="details">
-        <span>چلو خورشت قیمه سیب زمینی</span>
-        <span class="price">۱۴۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/khorrak_jooje.jpg" alt="خوراک جوجه معمولی" />
-      <div class="details">
-        <span>خوراک جوجه معمولی</span>
-        <span class="price">۱۰۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/images/khorrak_kubide.jpg" alt="خوراک کوبیده " />
-      <div class="details">
-        <span>خوراک کوبیده </span>
-        <span class="price">۹۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/khorrak_morgh.jpg" alt="خوراک مرغ" />
-      <div class="details">
-        <span>خوراک مرغ</span>
-        <span class="price">۱۴۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/khorrak_jooje.jpg" alt="خوراک جوجه مخصوص" />
-      <div class="details">
-        <span>خوراک جوجه مخصوص</span>
-        <span class="price">۱۳۰,۰۰۰ تومان</span>
-      </div>
-    </div>
-
-    <div class="menu-item">
-      <img src="images/cholokare.jpg" alt="چلوکره" />
-      <div class="details">
-        <span>چلوکره</span>
-        <span class="price">۹۰,۰۰۰ تومان</span>
-      </div>
-    </div>
+    <div class="menu-item"><img src="images/jooje.jpg" alt="چلو جوجه معمولی"><div class="details"><span>چلو جوجه معمولی</span><span class="price">۱۵۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/kubide.jpg" alt="چلو کوبیده معمولی"><div class="details"><span>چلو کوبیده معمولی</span><span class="price">۱۵۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/jooje_special.jpg" alt="چلو جوجه مخصوص"><div class="details"><span>چلو جوجه مخصوص</span><span class="price">۱۸۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/kubide_double.jpg" alt="چلو کوبیده دوبل"><div class="details"><span>چلو کوبیده دوبل</span><span class="price">۱۸۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/vaziri.jpg" alt="چلو کباب وزیری"><div class="details"><span>چلو کباب وزیری</span><span class="price">۲۰۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/zereshk.jpg" alt="زرشک پلو با مرغ"><div class="details"><span>زرشک پلو با مرغ</span><span class="price">۱۶۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/chologosht.jpg" alt="چلوگوشت"><div class="details"><span>چلوگوشت</span><span class="price">۲۲۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/ghorme.jpg" alt="چلو خورشت قرمه سبزی"><div class="details"><span>چلو خورشت قرمه سبزی</span><span class="price">۱۴۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/gheyme.jpg" alt="چلو خورشت قیمه سیب زمینی"><div class="details"><span>چلو خورشت قیمه سیب زمینی</span><span class="price">۱۴۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/khorrak_jooje.jpg" alt="خوراک جوجه معمولی"><div class="details"><span>خوراک جوجه معمولی</span><span class="price">۱۰۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/khorrak_kubide.jpg" alt="خوراک کوبیده"><div class="details"><span>خوراک کوبیده</span><span class="price">۹۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/khorrak_morgh.jpg" alt="خوراک مرغ"><div class="details"><span>خوراک مرغ</span><span class="price">۱۴۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/khorrak_jooje.jpg" alt="خوراک جوجه مخصوص"><div class="details"><span>خوراک جوجه مخصوص</span><span class="price">۱۳۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item"><img src="images/cholokare.jpg" alt="چلوکره"><div class="details"><span>چلوکره</span><span class="price">۹۰,۰۰۰ تومان</span></div></div>
   </div>
 
   <footer>
     آدرس: تهران، اسلامشهر، شاطره خیابان جانبازان — تلفن: 55260912
   </footer>
+
+  <script>
+    const items = document.querySelectorAll('.menu-item');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    items.forEach(item => observer.observe(item));
+  </script>
 </body>
 </html>
