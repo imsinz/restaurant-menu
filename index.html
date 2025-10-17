@@ -14,15 +14,15 @@
     }
 
     header {
-      background: transparent; /* هدر شفاف */
+      background: transparent;
       text-align: center;
-      padding: 0; /* فاصله حذف شد */
-      position: relative; /* غیر فیکس */
+      padding: 0;
+      position: relative;
       box-shadow: none;
     }
 
     .logo {
-      width: 100%; /* پر کردن کل هدر */
+      width: 100%;
       height: auto;
       display: block;
     }
@@ -58,6 +58,7 @@
       position: relative;
       opacity: 0;
       transform: translateY(30px);
+      cursor: pointer; /* اشاره‌گر دست */
     }
 
     .menu-item.visible {
@@ -119,24 +120,14 @@
       margin-top: 30px;
     }
 
-    /* تبلت */
     @media (max-width: 900px) {
-      .menu-item {
-        flex: 1 1 calc(50% - 20px);
-      }
+      .menu-item { flex: 1 1 calc(50% - 20px); }
     }
 
-    /* موبایل */
     @media (max-width: 600px) {
-      .menu-item {
-        flex: 1 1 100%;
-      }
-      .menu-item img {
-        height: auto;
-      }
-      .details span, .price {
-        font-size: 16px;
-      }
+      .menu-item { flex: 1 1 100%; }
+      .menu-item img { height: auto; }
+      .details span, .price { font-size: 16px; }
     }
   </style>
 </head>
@@ -148,20 +139,21 @@
   <div class="menu">
     <h2>منوی غذا</h2>
 
-    <div class="menu-item"><img src="images/jooje.jpg" alt="چلو جوجه معمولی"><div class="details"><span>چلو جوجه معمولی</span><span class="price">۱۵۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/kubide.jpg" alt="چلو کوبیده معمولی"><div class="details"><span>چلو کوبیده معمولی</span><span class="price">۱۶۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/jooje_special.jpg" alt="چلو جوجه مخصوص"><div class="details"><span>چلو جوجه مخصوص</span><span class="price">۲۰۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/kubide_double.jpg" alt="چلو کوبیده دوبل"><div class="details"><span>چلو کوبیده دوبل</span><span class="price">۲۰۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/vaziri.jpg" alt="چلو کباب وزیری"><div class="details"><span>چلو کباب وزیری</span><span class="price">۲۴۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/zereshk.jpg" alt="زرشک پلو با مرغ"><div class="details"><span>زرشک پلو با مرغ</span><span class="price">۱۷۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/chologosht.jpg" alt="چلوگوشت"><div class="details"><span>چلوگوشت</span><span class="price">۲۴۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/ghorme.jpg" alt="چلو خورشت قرمه سبزی"><div class="details"><span>چلو خورشت قرمه سبزی</span><span class="price">۱۴۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/gheyme.jpg" alt="چلو خورشت قیمه سیب زمینی"><div class="details"><span>چلو خورشت قیمه سیب زمینی</span><span class="price">۱۴۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/khorrak_jooje.jpg" alt="خوراک جوجه معمولی"><div class="details"><span>خوراک جوجه معمولی</span><span class="price">۱۱۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/khorrak_kubide.jpg" alt="خوراک کوبیده"><div class="details"><span>خوراک کوبیده</span><span class="price">۱۱۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/khorrak_morgh.jpg" alt="خوراک مرغ"><div class="details"><span>خوراک مرغ</span><span class="price">۱۵۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/khorrak_jooje.jpg" alt="خوراک جوجه مخصوص"><div class="details"><span>خوراک جوجه مخصوص</span><span class="price">۱۵۰,۰۰۰ تومان</span></div></div>
-    <div class="menu-item"><img src="images/cholokare.jpg" alt="چلوکره"><div class="details"><span>چلوکره</span><span class="price">۹۰,۰۰۰ تومان</span></div></div>
+    <!-- هر غذا با قابلیت تماس -->
+    <div class="menu-item" data-tel="02155260912"><img src="images/jooje.jpg" alt="چلو جوجه معمولی"><div class="details"><span>چلو جوجه معمولی</span><span class="price">۱۵۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/kubide.jpg" alt="چلو کوبیده معمولی"><div class="details"><span>چلو کوبیده معمولی</span><span class="price">۱۶۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/jooje_special.jpg" alt="چلو جوجه مخصوص"><div class="details"><span>چلو جوجه مخصوص</span><span class="price">۲۰۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/kubide_double.jpg" alt="چلو کوبیده دوبل"><div class="details"><span>چلو کوبیده دوبل</span><span class="price">۲۰۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/vaziri.jpg" alt="چلو کباب وزیری"><div class="details"><span>چلو کباب وزیری</span><span class="price">۲۴۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/zereshk.jpg" alt="زرشک پلو با مرغ"><div class="details"><span>زرشک پلو با مرغ</span><span class="price">۱۷۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/chologosht.jpg" alt="چلوگوشت"><div class="details"><span>چلوگوشت</span><span class="price">۲۴۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/ghorme.jpg" alt="چلو خورشت قرمه سبزی"><div class="details"><span>چلو خورشت قرمه سبزی</span><span class="price">۱۴۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/gheyme.jpg" alt="چلو خورشت قیمه سیب زمینی"><div class="details"><span>چلو خورشت قیمه سیب زمینی</span><span class="price">۱۴۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/khorrak_jooje.jpg" alt="خوراک جوجه معمولی"><div class="details"><span>خوراک جوجه معمولی</span><span class="price">۱۱۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/khorrak_kubide.jpg" alt="خوراک کوبیده"><div class="details"><span>خوراک کوبیده</span><span class="price">۱۱۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/khorrak_morgh.jpg" alt="خوراک مرغ"><div class="details"><span>خوراک مرغ</span><span class="price">۱۵۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/khorrak_jooje.jpg" alt="خوراک جوجه مخصوص"><div class="details"><span>خوراک جوجه مخصوص</span><span class="price">۱۵۰,۰۰۰ تومان</span></div></div>
+    <div class="menu-item" data-tel="02155260912"><img src="images/cholokare.jpg" alt="چلوکره"><div class="details"><span>چلوکره</span><span class="price">۹۰,۰۰۰ تومان</span></div></div>
   </div>
 
   <footer>
@@ -169,8 +161,8 @@
   </footer>
 
   <script>
+    // انیمیشن ظاهر شدن
     const items = document.querySelectorAll('.menu-item');
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -179,8 +171,15 @@
         }
       });
     }, { threshold: 0.2 });
-
     items.forEach(item => observer.observe(item));
+
+    // قابلیت تماس با کلیک روی هر غذا
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const tel = item.getAttribute('data-tel');
+        window.location.href = 'tel:' + tel;
+      });
+    });
   </script>
 </body>
 </html>
