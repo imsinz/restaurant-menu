@@ -5,130 +5,143 @@
   <title>منوی رستوران پدیده</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    :root {
+      --accent1: #ff4d4d;
+      --accent2: #b22222;
+      --card-bg: linear-gradient(145deg, #fff, #ffeaea);
+    }
+
+    html,body { height:100%; margin:0; padding:0; }
+
     body {
-      font-family: 'Tahoma', sans-serif;
+      font-family: Tahoma, sans-serif;
       direction: rtl;
-      margin: 0;
-      padding-top: 0;
       background: #f5f5f5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     header {
       background: transparent;
       text-align: center;
       padding: 0;
-      position: relative;
-      box-shadow: none;
     }
 
     .logo {
-      width: 100%;
-      height: auto;
-      display: block;
+      width:100%;
+      height:auto;
+      display:block;
     }
 
     .menu {
-      max-width: 1200px;
-      margin: 20px auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+      max-width:1200px;
+      margin:20px auto;
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      justify-content:center;
+      padding: 0 12px;
     }
 
     .menu h2 {
-      width: 100%;
-      text-align: center;
-      color: #b22222;
-      margin: 30px 0;
-      font-size: 32px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      width:100%;
+      text-align:center;
+      color: var(--accent2);
+      margin:30px 0;
+      font-size:32px;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.15);
     }
 
+    /* هر آیتم حالا <a> است، پس آن را بلاک می‌کنیم */
     .menu-item {
-      flex: 1 1 calc(33.333% - 20px);
-      background: linear-gradient(145deg, #fff, #ffeaea);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-      transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      opacity: 0;
-      transform: translateY(30px);
-      text-decoration: none;
-      color: inherit;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
+      flex:1 1 calc(33.333% - 20px);
+      background: var(--card-bg);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 6px 20px rgba(0,0,0,0.12);
+      transition: transform .28s, box-shadow .28s, opacity .45s;
+      position:relative;
+      opacity:0;
+      transform:translateY(28px);
+      -webkit-tap-highlight-color: rgba(0,0,0,0.05); /* موبایل: هایلایت کمتر */
+      touch-action: manipulation; /* لمس روان‌تر */
     }
 
     .menu-item.visible {
-      opacity: 1;
-      transform: translateY(0);
+      opacity:1;
+      transform:translateY(0);
     }
 
     .menu-item:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+      transform:translateY(-6px) scale(1.02);
+      box-shadow:0 14px 30px rgba(0,0,0,0.18);
     }
 
     .menu-item img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      transition: transform 0.3s;
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      transition: transform .28s;
+      display:block;
+      user-select:none;
+      pointer-events:none; /* تا تصویر کلیک را مسدود نکند */
     }
 
-    .menu-item:hover img {
-      transform: scale(1.05);
-    }
+    .menu-item:hover img { transform:scale(1.05); }
 
     .details {
-      padding: 15px;
-      text-align: center;
+      padding:14px 16px 22px;
+      text-align:center;
+      width:100%;
+      box-sizing:border-box;
     }
 
-    .details span {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 18px;
-      font-weight: 500;
-      color: #333;
+    .details .title {
+      display:block;
+      margin-bottom:10px;
+      font-size:18px;
+      font-weight:600;
+      color:#222;
     }
 
     .price {
-      font-weight: bold;
-      color: #fff;
-      background: linear-gradient(135deg, #ff4d4d, #b22222);
-      padding: 8px 16px;
-      border-radius: 12px;
-      font-size: 16px;
-      display: inline-block;
-      transition: transform 0.3s, box-shadow 0.3s;
+      display:inline-block;
+      font-weight:700;
+      background: linear-gradient(135deg,var(--accent1),var(--accent2));
+      color:#fff;
+      padding:8px 14px;
+      border-radius:12px;
+      font-size:15px;
+      transition: transform .2s, box-shadow .2s;
     }
 
     .menu-item:hover .price {
-      transform: scale(1.1);
-      box-shadow: 0 4px 15px rgba(178,34,34,0.6);
+      transform:scale(1.08);
+      box-shadow:0 6px 18px rgba(178,34,34,0.35);
     }
 
     footer {
-      text-align: center;
-      background: #eee;
-      padding: 15px;
-      font-size: 14px;
-      color: #555;
-      margin-top: 30px;
+      text-align:center;
+      background:#efefef;
+      padding:14px;
+      font-size:14px;
+      color:#444;
+      margin-top:28px;
     }
 
-    @media (max-width: 900px) {
-      .menu-item { flex: 1 1 calc(50% - 20px); }
+    @media (max-width:900px) {
+      .menu-item { flex:1 1 calc(50% - 20px); }
     }
 
-    @media (max-width: 600px) {
-      .menu-item { flex: 1 1 100%; }
-      .menu-item img { height: auto; }
-      .details span, .price { font-size: 16px; }
+    @media (max-width:600px) {
+      .menu-item { flex:1 1 100%; }
+      .menu-item img { height:auto; }
+      .details .title, .price { font-size:16px; }
     }
   </style>
 </head>
@@ -137,42 +150,141 @@
     <img src="images/logo.png" alt="لوگوی رستوران پدیده" class="logo">
   </header>
 
-  <div class="menu">
+  <main class="menu" aria-label="منوی غذا">
     <h2>منوی غذا</h2>
 
-    <!-- همه غذاها داخل لینک تماس -->
-    <a href="tel:02155260912" class="menu-item"><img src="images/jooje.jpg" alt="چلو جوجه معمولی"><div class="details"><span>چلو جوجه معمولی</span><span class="price">۱۵۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/kubide.jpg" alt="چلو کوبیده معمولی"><div class="details"><span>چلو کوبیده معمولی</span><span class="price">۱۶۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/jooje_special.jpg" alt="چلو جوجه مخصوص"><div class="details"><span>چلو جوجه مخصوص</span><span class="price">۲۰۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/kubide_double.jpg" alt="چلو کوبیده دوبل"><div class="details"><span>چلو کوبیده دوبل</span><span class="price">۲۰۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/vaziri.jpg" alt="چلو کباب وزیری"><div class="details"><span>چلو کباب وزیری</span><span class="price">۲۴۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/zereshk.jpg" alt="زرشک پلو با مرغ"><div class="details"><span>زرشک پلو با مرغ</span><span class="price">۱۷۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/chologosht.jpg" alt="چلوگوشت"><div class="details"><span>چلوگوشت</span><span class="price">۲۴۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/ghorme.jpg" alt="چلو خورشت قرمه سبزی"><div class="details"><span>چلو خورشت قرمه سبزی</span><span class="price">۱۴۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/gheyme.jpg" alt="چلو خورشت قیمه سیب زمینی"><div class="details"><span>چلو خورشت قیمه سیب زمینی</span><span class="price">۱۴۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/khorrak_jooje.jpg" alt="خوراک جوجه معمولی"><div class="details"><span>خوراک جوجه معمولی</span><span class="price">۱۱۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/khorrak_kubide.jpg" alt="خوراک کوبیده"><div class="details"><span>خوراک کوبیده</span><span class="price">۱۱۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/khorrak_morgh.jpg" alt="خوراک مرغ"><div class="details"><span>خوراک مرغ</span><span class="price">۱۵۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/khorrak_jooje.jpg" alt="خوراک جوجه مخصوص"><div class="details"><span>خوراک جوجه مخصوص</span><span class="price">۱۵۰,۰۰۰ تومان</span></div></a>
-    <a href="tel:02155260912" class="menu-item"><img src="images/cholokare.jpg" alt="چلوکره"><div class="details"><span>چلوکره</span><span class="price">۹۰,۰۰۰ تومان</span></div></a>
-  </div>
+    <!-- هر آیتم حالا لینک تماس است (فرمت بین‌المللی برای اطمینان) -->
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — چلو جوجه معمولی">
+      <img src="images/jooje.jpg" alt="چلو جوجه معمولی">
+      <div class="details">
+        <span class="title">چلو جوجه معمولی</span>
+        <span class="price">۱۵۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — چلو کوبیده معمولی">
+      <img src="images/kubide.jpg" alt="چلو کوبیده معمولی">
+      <div class="details">
+        <span class="title">چلو کوبیده معمولی</span>
+        <span class="price">۱۶۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — چلو جوجه مخصوص">
+      <img src="images/jooje_special.jpg" alt="چلو جوجه مخصوص">
+      <div class="details">
+        <span class="title">چلو جوجه مخصوص</span>
+        <span class="price">۲۰۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — چلو کوبیده دوبل">
+      <img src="images/kubide_double.jpg" alt="چلو کوبیده دوبل">
+      <div class="details">
+        <span class="title">چلو کوبیده دوبل</span>
+        <span class="price">۲۰۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — چلو کباب وزیری">
+      <img src="images/vaziri.jpg" alt="چلو کباب وزیری">
+      <div class="details">
+        <span class="title">چلو کباب وزیری</span>
+        <span class="price">۲۴۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — زرشک پلو با مرغ">
+      <img src="images/zereshk.jpg" alt="زرشک پلو با مرغ">
+      <div class="details">
+        <span class="title">زرشک پلو با مرغ</span>
+        <span class="price">۱۷۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — چلوگوشت">
+      <img src="images/chologosht.jpg" alt="چلوگوشت">
+      <div class="details">
+        <span class="title">چلوگوشت</span>
+        <span class="price">۲۴۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — چلو خورشت قرمه سبزی">
+      <img src="images/ghorme.jpg" alt="چلو خورشت قرمه سبزی">
+      <div class="details">
+        <span class="title">چلو خورشت قرمه سبزی</span>
+        <span class="price">۱۴۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — چلو خورشت قیمه سیب زمینی">
+      <img src="images/gheyme.jpg" alt="چلو خورشت قیمه سیب زمینی">
+      <div class="details">
+        <span class="title">چلو خورشت قیمه سیب زمینی</span>
+        <span class="price">۱۴۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — خوراک جوجه معمولی">
+      <img src="images/khorrak_jooje.jpg" alt="خوراک جوجه معمولی">
+      <div class="details">
+        <span class="title">خوراک جوجه معمولی</span>
+        <span class="price">۱۱۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — خوراک کوبیده">
+      <img src="images/khorrak_kubide.jpg" alt="خوراک کوبیده">
+      <div class="details">
+        <span class="title">خوراک کوبیده</span>
+        <span class="price">۱۱۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — خوراک مرغ">
+      <img src="images/khorrak_morgh.jpg" alt="خوراک مرغ">
+      <div class="details">
+        <span class="title">خوراک مرغ</span>
+        <span class="price">۱۵۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — خوراک جوجه مخصوص">
+      <img src="images/khorrak_jooje.jpg" alt="خوراک جوجه مخصوص">
+      <div class="details">
+        <span class="title">خوراک جوجه مخصوص</span>
+        <span class="price">۱۵۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+    <a href="tel:+982155260912" class="menu-item" aria-label="تماس با رستوران — چلوکره">
+      <img src="images/cholokare.jpg" alt="چلوکره">
+      <div class="details">
+        <span class="title">چلوکره</span>
+        <span class="price">۹۰,۰۰۰ تومان</span>
+      </div>
+    </a>
+
+  </main>
 
   <footer>
     آدرس: تهران، اسلامشهر، شاطره خیابان جانبازان — تلفن: 02155260912
   </footer>
 
   <script>
-    // انیمیشن ظاهر شدن
+    // انیمیشن ظاهر شدن آیتم‌ها (برای anchors هم کار می‌کنه)
     const items = document.querySelectorAll('.menu-item');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2 });
-    items.forEach(item => observer.observe(item));
+    }, { threshold: 0.18 });
+
+    items.forEach(i => observer.observe(i));
   </script>
 </body>
 </html>
